@@ -65,7 +65,7 @@ class Hiragana extends StatelessWidget {
     'け',
     'え',
     'ん',
-    '。',
+    'っ',
     'ろ',
     'も',
     'ぼ',
@@ -115,11 +115,14 @@ class Hiragana extends StatelessWidget {
                   model.getText(),
                   style: TextStyle(fontSize: 24, color: Colors.indigo),
                 ),
-                TextButton(
-                    onPressed: () {
-                      model.resetText();
-                    },
-                    child: Icon(Icons.delete)),
+                Padding(
+                  padding: const EdgeInsets.all(50.100),
+                  child: TextButton(
+                      onPressed: () {
+                        model.resetText();
+                      },
+                      child: Icon(Icons.delete)),
+                ),
               ],
             );
           }),
