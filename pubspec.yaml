@@ -1,0 +1,38 @@
+name: our_home_town
+description: descover our home town.
+
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  google_fonts: ^2.1.0
+  cupertino_icons: ^1.0.2
+  provider: ^5.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+flutter:
+  uses-material-design: true
+  assets:
+    - town_assets/images/welcome_page.png
+
+
+fonts:
+    - family: KiwiMaru
+      fonts:
+        - asset: town_assets/fonts/KiwiMaru-Regular.ttf
+        - asset: town_assets/fonts/KiwiMaru-Light.ttf
+        - asset: town_assets/fonts/KiwiMaru-Medium.ttf
+          weight: 700
+
+
