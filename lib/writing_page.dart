@@ -1,71 +1,73 @@
 import 'package:flutter/material.dart';
+import 'package:our_home_town/painter.dart';
 import 'hometown_theme.dart';
 
-class WritingPage extends StatelessWidget {
-  const WritingPage({Key? key}) : super(key: key);
-  // 1
-  final String category = 'Editor\'s Choice';
-  final String title = 'The Art of Dough';
-  final String description = 'Learn to make the perfect bread.';
-  final String chef = 'Ray Wenderlich';
 
-  // 2
+class WritingPage extends StatefulWidget {
+
+  @override
+  _WritingPageState createState() => _WritingPageState();
+}
+
+
+class _WritingPageState extends State<WritingPage> {
+
+  // コントローラ
+  PaintController _controller = PaintController();
+
   @override
   Widget build(BuildContext context) {
-    // 3
-    return Center(
-      child: Container(
-        child: Stack(
-          children: [
-            // 8
-            Text(
-              category,
-              style: HometownTheme.darkTextTheme.bodyText1,
-            ),
-            // 9
-            Positioned(
-              child: Text(
-                title,
-                style: HometownTheme.darkTextTheme.headline2,
-              ),
-              top: 20,
-            ),
-            // 10
-            Positioned(
-              child: Text(
-                description,
-                style: HometownTheme.darkTextTheme.bodyText1,
-              ),
-              bottom: 30,
-              right: 0,
-            ),
-            // 11
-            Positioned(
-              child: Text(
-                chef,
-                style: HometownTheme.darkTextTheme.bodyText1,
-              ),
-              bottom: 10,
-              right: 0,
-            )
-          ],
+
+    return Scaffold(
+
+      appBar: AppBar(
+        title: Text('ペイント'),
+        centerTitle: true,
+      ),
+
+      body: Container(
+        child: Painter(
+          paintController: _controller,
         ),
-        // 1
-        padding: const EdgeInsets.all(16),
-        // 2
-        constraints: const BoxConstraints.expand(width: 350, height: 450),
-        // 3
-        decoration: const BoxDecoration(
-          // 4
-          image: DecorationImage(
-            // 5
-            image: AssetImage('assets/mag1.png'),
-            // 6
-            fit: BoxFit.cover,
+      ),
+
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+
+          // undoボタン
+          FloatingActionButton(
+            heroTag: "undo",
+            onPressed: () {
+              if (_controller.canUndo) _controller.undo();
+            },
+            child: Text("undo"),
           ),
-          // 7
-          borderRadius: BorderRadius.all(Radius.circular(10.0)),
-        ),
+
+          SizedBox(
+            height: 20.0,
+          ),
+
+          // redoボタン
+          FloatingActionButton(
+            heroTag: "redo",
+            onPressed: () {
+              if (_controller.canRedo) _controller.redo();
+            },
+            child: Text("redo"),
+          ),
+
+          SizedBox(
+            height: 20.0,
+          ),
+
+          // クリアボタン
+          FloatingActionButton(
+            heroTag: "clear",
+            onPressed: () => _controller.clear(),
+            child: Text("clear"),
+          ),
+        ],
       ),
     );
   }
