@@ -113,7 +113,7 @@ class _WelcomePageState extends State<WelcomePage>{
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Hiragana()
+                      MaterialPageRoute(builder: (context) => Hiragana('なまえをかきましょう')
                       ),
                     );
                   },

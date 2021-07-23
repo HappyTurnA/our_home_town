@@ -3,6 +3,10 @@ import 'package:our_home_town/model/hiragana_model.dart';
 import 'package:provider/provider.dart';
 
 class Hiragana extends StatelessWidget {
+  Hiragana(this.message);
+  String message;
+
+
   final items = [
     'よ',
     'や',
@@ -82,14 +86,14 @@ class Hiragana extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
-    final title = 'なまえをかきましょう';
+    final title = 'ひらがな';
     String inputText = '';
 
     return MaterialApp(
       title: title,
       home: Scaffold(
         appBar: AppBar(
-          title: Text(title),
+          title: Text(message),
         ),
         body: ChangeNotifierProvider<HiraganaModel>(
           create: (_) => HiraganaModel(),
