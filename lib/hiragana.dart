@@ -114,12 +114,19 @@ class Hiragana extends StatelessWidget {
                     }),
                   ),
                 ),
-                Text(
-                  model.getText(),
-                  style: TextStyle(fontSize: 24, color: Colors.indigo),
+                Container(
+                  width: 250,
+                  height: 35,
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.red),
+                  ),
+                  child: Text(
+                    model.getText(),
+                    style: TextStyle(fontSize: 24, color: Colors.indigo),
+                  ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(50.100),
+                  padding: const EdgeInsets.all(50),
                   child: TextButton(
                       onPressed: () {
                         model.resetText();
