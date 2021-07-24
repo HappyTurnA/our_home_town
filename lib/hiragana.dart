@@ -6,7 +6,6 @@ class Hiragana extends StatelessWidget {
   Hiragana(this.message);
   String message;
 
-
   final items = [
     'よ',
     'や',
@@ -125,7 +124,7 @@ class Hiragana extends StatelessWidget {
                       onPressed: () {
                         model.resetText();
                       },
-                      child: Icon(Icons.delete)),
+                      child: Icon(Icons.highlight_remove)),
                 ),
               ],
             );
