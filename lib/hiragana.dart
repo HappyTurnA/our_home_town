@@ -125,13 +125,29 @@ class Hiragana extends StatelessWidget {
                     style: TextStyle(fontSize: 24, color: Colors.indigo),
                   ),
                 ),
-                Padding(
+                Container(
                   padding: const EdgeInsets.all(50),
-                  child: TextButton(
-                      onPressed: () {
-                        model.resetText();
-                      },
-                      child: Icon(Icons.highlight_remove)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      TextButton(
+                          onPressed: () {
+                            // TODO: welcome_page へ遷移
+                          },
+                          child: Icon(
+                            Icons.check_circle_rounded,
+                            color: Colors.green,
+                          )),
+                      TextButton(
+                          onPressed: () {
+                            model.resetText();
+                          },
+                          child: Icon(
+                            Icons.highlight_remove,
+                            color: Colors.red,
+                          )),
+                    ],
+                  ),
                 ),
               ],
             );
